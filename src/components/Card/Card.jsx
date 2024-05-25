@@ -4,9 +4,16 @@
 import React from 'react';
 
 const Card = (props) => {
-    console.log(props.card)
+    // console.log(props.card)
     const { id, image, name, features, published_in, } = props.card
-    const defaultImage = "https://cdn.pixabay.com/photo/2022/12/18/04/39/cyber-brain-7662721_1280.jpg"
+    const defaultImage = "https://cdn.pixabay.com/photo/2022/12/18/04/39/cyber-brain-7662721_1280.jpg";
+    // console.log(props)
+    const { setUniqueId } = props;
+
+    const handleModal = (id) => {
+        setUniqueId(id)
+        document.getElementById('my_modal_4').showModal()
+    }
 
     const handleImageError = (event) => {
         event.target.src = defaultImage;
@@ -32,7 +39,7 @@ const Card = (props) => {
                             </span>
                             <p>{published_in}</p>
                         </div>
-                        <button className="btn btn-circle btn-sm btn-error"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="red" className="size-6">
+                        <button onClick={() => handleModal(id)} className="btn btn-circle btn-sm btn-error"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="red" className="size-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                         </svg>
                         </button>
