@@ -5,6 +5,8 @@ import Header from './components/Header/Header';
 import Button from './components/Button/Button';
 import Cards from './components/Cards/Cards';
 
+// live site link: https://resplendent-biscotti-f8eb8b.netlify.app/
+
 const App = () => {
   return (
     <>
