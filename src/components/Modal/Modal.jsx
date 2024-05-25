@@ -5,7 +5,14 @@ import React from 'react';
 
 const Modal = (props) => {
     console.log(props.modalData)
-    const { image_link, description, features, input_output_examples, integrations } = props.modalData;
+    const { image_link, description, features, input_output_examples, integrations, tool_name } = props.modalData;
+
+    const defaultImage = "https://cdn.pixabay.com/photo/2022/12/18/04/39/cyber-brain-7662721_1280.jpg";
+    const handleImageError = (event) => {
+        event.target.src = defaultImage;
+    }
+
+
     return (
         <div>
             <dialog id="my_modal_4" className="modal">
@@ -38,20 +45,17 @@ const Modal = (props) => {
                             </div>
                         </div>
                         <div className="card w-full bg-base-100 shadow-xl">
-                            <figure><img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                            <figure><img src={image_link ? image_link[0] : defaultImage} alt={tool_name || "Ai tool"} onError={handleImageError} /></figure>
                             <div className="card-body">
-                                <h2 className="card-title">Shoes!</h2>
-                                <p>If a dog chews shoes whose shoes does he choose?</p>
-                                <div className="card-actions justify-end">
-                                    <button className="btn btn-primary">Buy Now</button>
-                                </div>
+                                <h2 className='text-xl font-bold text-center'>{input_output_examples ? input_output_examples[0].input : "Can you tell me a joke?"}</h2>
+                                <p className='text-center text-gray-600'>{input_output_examples ? input_output_examples[0].output : "Sure! Why did the tomato turn red? Because it saw the salad dressing!"}</p>
                             </div>
                         </div>
                     </div>
                     <div className="modal-action">
                         <form method="dialog">
                             {/* if there is a button, it will close the modal */}
-                            <button className="btn">Close</button>
+                            <button className="btn btn-warning">Close</button>
                         </form>
                     </div>
                 </div>
