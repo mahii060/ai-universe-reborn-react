@@ -9,7 +9,6 @@ const App = () => {
   return (
     <>
       <Header></Header>
-      {/* <Button>Sort by Date</Button> */}
       <Cards></Cards>
     </>
   );

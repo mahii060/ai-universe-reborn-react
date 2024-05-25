@@ -11,6 +11,13 @@ const Cards = () => {
     const [uniqueId, setUniqueId] = useState(undefined);
     const [modalData, setModalData] = useState([])
 
+    const handleSort = () => {
+        const sortedData = cards.sort((a, b) => {
+            return new Date(a.published_in) - new Date(b.published_in)
+        })
+        setCards([...sortedData])
+    }
+
     const handleShowAll = () => {
         setShowAll(true)
     }
@@ -31,7 +38,7 @@ const Cards = () => {
     return (
         <div>
             <div className='text-center my-3'>
-                <button className="btn btn-accent">Sort by Date</button>
+                <button onClick={handleSort} className="btn btn-accent">Sort by Date</button>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:px-12 md:px-6 px-2 my-3'>
                 {
