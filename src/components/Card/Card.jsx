@@ -19,7 +19,8 @@ const Card = (props) => {
 
     return (
         <div>
-            <div className="card w-full h-full bg-base-100 shadow-2xl">
+            <div className="card w-full h-full bg-base-100 shadow-xl border-2 
+            border-gray-300 p-3">
                 <figure><img src={image || defaultImage} alt={name || "Ai tool"}
                     onError={handleImageError} /></figure>
                 <div className="card-body">
@@ -27,7 +28,7 @@ const Card = (props) => {
                     {
                         features?.map((feature, index) => <li key={index}>{feature}</li>)
                     }
-                    <hr className='border border-black my-3' />
+                    <hr className='border border-gray-300 my-3' />
                     <h1 className='text-2xl font-bold'>{name}</h1>
                     <div className="flex justify-between items-center">
                         <div className='flex gap-1'>
