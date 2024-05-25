@@ -4,10 +4,8 @@
 import React from 'react';
 
 const Card = (props) => {
-    // console.log(props.card)
     const { id, image, name, features, published_in, } = props.card
     const defaultImage = "https://cdn.pixabay.com/photo/2022/12/18/04/39/cyber-brain-7662721_1280.jpg";
-    // console.log(props)
     const { setUniqueId } = props;
 
     const handleModal = (id) => {
